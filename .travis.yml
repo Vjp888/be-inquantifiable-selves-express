@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "node"
+ services:
+  - postgresql
+before_install:
+  - npm i -g npm@6.9.0
+before_script:
+  - psql -c 'CREATE DATABASE be-inquantifiable-selves-express_test;' -U postgres
