@@ -1,10 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Meal = sequelize.define('Meal', {
+  const meal = sequelize.define('meal', {
     name: DataTypes.CITEXT
   }, {});
-  Meal.associate = function(models) {
+  meal.associate = function(models) {
     // associations can be defined here
+    meal.belongsToMany(models.food, {
+      through: models.mealfood,
+      as: 'foods'
+    });
   };
-  return Meal;
+  return meal;
 };

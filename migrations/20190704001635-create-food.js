@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Meals', {
+    return queryInterface.createTable('food', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,8 +12,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.CITEXT,
         validate: {
-          isAlphanumeric: true
+          isAlpha: true
         }
+      },
+      calories: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        validate: { greaterThanZero(value) {
+          if (value < 0) {
+            throw new Error("Calories must be greater than zero.");
+          }
+        }}
       },
       createdAt: {
         allowNull: false,
@@ -26,6 +35,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Meals');
+    return queryInterface.dropTable('food');
   }
 };
