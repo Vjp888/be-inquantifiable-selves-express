@@ -1,6 +1,6 @@
-var application = require('./index.js')
-var router = application.router
-var foodsController = application.foodsController
+var express = require('express');
+var router = express.Router();
+var foodsController = require('../../../controllers/api/v1/foods_controller.js');
 
 // Index
 router.get('/', function(req, res) {
