@@ -6,8 +6,9 @@ class MealSerializer {
       'id': singleMeal.id,
       'name': singleMeal.name
     }
-    // This function is pull the attributes from the foods associations and mapping them to their keys
-    singleMeal.getFoods().then(foods => {
+    // This function pulls the attributes from the foods associations and mapping them to their keys
+    singleMeal.getFoods()
+    .then(foods => {
       result['foods'] = foods.map(function (food){
         let foodParse = {
           'id': food.id,
