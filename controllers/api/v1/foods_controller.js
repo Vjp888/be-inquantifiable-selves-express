@@ -13,7 +13,7 @@ async function index(req, res) {
     res.status(200).send({ foods })
   } else {
     res.setHeader("Content-Type", "application/json");
-    res.status(200).send({ foods })
+    res.status(200).send({ "foods": [] })
   }
 }
 
