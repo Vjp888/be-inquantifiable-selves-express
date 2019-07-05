@@ -1,6 +1,11 @@
 ## Inquantifiable Selves - Express
 
 ### Endpoints
+**GET /api/v1/foods**  
+*returns all food resources*  
+
+**GET /api/v1/foods/:id**  
+*returns a single food resources*  
 
 ### Setup
 *Database & Models*
