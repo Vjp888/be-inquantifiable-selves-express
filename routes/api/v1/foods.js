@@ -12,4 +12,10 @@ router.get('/:id', function(req, res) {
   foodsController.show(req, res);
 });
 
+// Create
+router.post('/', function(req, res) {
+  foodsController.create(req, res);
+});
+
+
 module.exports = router;

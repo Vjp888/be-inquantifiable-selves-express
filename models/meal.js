@@ -1,7 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const meal = sequelize.define('meal', {
-    name: DataTypes.CITEXT
+    name: {
+      type: DataTypes.CITEXT,
+      validate: {
+        isAlpha: true
+      }
+    }
   }, {});
   meal.associate = function(models) {
     // associations can be defined here

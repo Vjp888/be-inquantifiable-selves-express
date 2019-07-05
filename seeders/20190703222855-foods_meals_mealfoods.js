@@ -5,28 +5,24 @@ module.exports = {
 
     await queryInterface.bulkInsert('food', [
       {
-        id: 1,
         name: 'Banana',
         calories: 150,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        id: 2,
         name: 'Apple',
         calories: 100,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        id: 3,
         name: 'Sandwich',
         calories: 400,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        id: 4,
         name: 'Chips',
         calories: 250,
         createdAt: new Date(),
@@ -36,41 +32,45 @@ module.exports = {
 
     await queryInterface.bulkInsert('meals', [
       {
-        id: 1,
         name: 'Breakfast' ,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        id: 2,
         name: 'Lunch' ,
         createdAt: new Date(),
         updatedAt: new Date()
       }
     ], {});
 
+    const allFoods = await queryInterface.sequelize.query(
+      `SELECT food.id from food;`);
+
+    const allMeals = await queryInterface.sequelize.query(
+      `SELECT meals.id from meals;`);
+
     await queryInterface.bulkInsert('mealfoods', [
       {
-        mealId: 1,
-        foodId: 1,
+        mealId: allMeals[0][0].id,
+        foodId: allFoods[0][0].id,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        mealId: 1,
-        foodId: 2,
+        mealId: allMeals[0][0].id,
+        foodId: allFoods[0][1].id,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        mealId: 2,
-        foodId: 3,
+        mealId: allMeals[0][1].id,
+        foodId: allFoods[0][2].id,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        mealId: 2,
-        foodId: 4,
+        mealId: allMeals[0][1].id,
+        foodId: allFoods[0][3].id,
         createdAt: new Date(),
         updatedAt: new Date()
       }
