@@ -1,9 +1,9 @@
 var application = require('../../index.js');
-var food = application.food;
+var Food = application.food;
 var FoodSerializer = application.foodSerializer;
 
 async function index(req, res) {
-  let foodList = await food.findAll();
+  let foodList = await Food.findAll();
 
   if(foodList.length > 0) {
     let foods = foodList.map(function (singleFood) {
@@ -19,7 +19,7 @@ async function index(req, res) {
 
 async function show(req, res) {
   let foodId = req.params.id
-  let singleFood = await food.findOne({ where: { id: foodId } });
+  let singleFood = await Food.findOne({ where: { id: foodId } });
 
     if(singleFood) {
       res.setHeader("Content-Type", "application/json");
@@ -30,7 +30,26 @@ async function show(req, res) {
     }
 }
 
+async function create(req, res) {
+  let newFood = req.body.food.name;
+  let calories = req.body.food.calories;
+
+  Food.create({
+    name: newFood,
+    calories: calories
+  })
+  .then(food => {
+    res.setHeader("Content-Type", "application/json");
+    res.status(201).send({"message": `${newFood} has been added`});
+  })
+  .catch(error => {
+    res.setHeader("Content-Type", "application/json");
+    res.status(400).send({"error": error.message});
+  })
+}
+
 module.exports = {
   index: index,
-  show: show
+  show: show,
+  create: create,
 }
