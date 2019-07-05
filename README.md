@@ -20,8 +20,8 @@
 ### Packages
 `$ npm install dotenv`  
 
-*Testing*
-`$npm install babel-jest supertest shelljs -D`
-`$npm install jest-cli` 
+*Testing*  
+`$npm install babel-jest supertest shelljs -D`  
+`$npm install jest-cli`   
 
 ### Schema
