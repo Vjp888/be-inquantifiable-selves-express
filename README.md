@@ -1,7 +1,7 @@
 ## Inquantifiable Selves - Express
 
 ### Endpoints  
-#### inquantifiable-selves.herokuapp.com
+#### [inquantifiable-selves.herokuapp.com](inquantifiable-selves.herokuapp.com)
 
 **GET /api/v1/foods**  
 *returns all food resources*  
