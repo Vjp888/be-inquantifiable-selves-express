@@ -7,7 +7,8 @@ services:
   - postgresql
 before_script:
   - psql -c 'CREATE DATABASE be_inquantifiable_selves_express_test;' -U postgres
-  - psql -c '\c be_inquantifiable_selves_express_test; CREATE EXTENSION citext;'
+  - psql -c '\c be_inquantifiable_selves_express_test;'
+  - psql -c '\c CREATE EXTENSION citext;'
 
 # create db
 # add citext
