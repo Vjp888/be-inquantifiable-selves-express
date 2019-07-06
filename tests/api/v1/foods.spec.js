@@ -13,9 +13,9 @@ describe('api', () => {
   afterEach(() => {
     shell.exec('npx sequelize db:migrate:undo:all')
   });
-  afterAll(() => {
-    shell.exec('npx sequelize db:drop')
-  });
+  // afterAll(() => {
+  //   shell.exec('npx sequelize db:drop')
+  // });
 
   describe('GET /api/v1/foods', () => {
     test('It should return all food resources and 200 status code', async () => {
