@@ -17,20 +17,21 @@ async function index(req, res) {
   }
 }
 
-async function show(req, res) {
+function show(req, res) {
   let foodId = req.params.id
-  let singleFood = await Food.findOne({ where: { id: foodId } });
 
-    if(singleFood) {
-      res.setHeader("Content-Type", "application/json");
-      res.status(200).send(FoodSerializer.format(singleFood));
-    } else {
-      res.setHeader("Content-Type", "application/json");
-      res.status(404).send({"error": "Food not found"});
-    }
+  Food.findOne({ where: { id: foodId } })
+  .then(singleFood => {
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).send(FoodSerializer.format(singleFood));
+  })
+  .catch(error => {
+    res.setHeader("Content-Type", "application/json");
+    res.status(404).send({"error": error.message});
+  })
 }
 
-async function create(req, res) {
+function create(req, res) {
   let newFood = req.body.food.name;
   let calories = req.body.food.calories;
 
@@ -48,8 +49,26 @@ async function create(req, res) {
   })
 }
 
+function destroy(req, res) {
+  let foodId = req.params.id
+
+  Food.findOne({ where: { id: foodId } })
+  .then(singleFood => {
+    singleFood.destroy();
+    res.setHeader("Content-Type", "application/json");
+    res.status(204).send();
+    // no body content delivered with 204 status code
+  })
+  .catch(error => {
+    res.setHeader("Content-Type", "application/json");
+    res.status(404).send({"error": error.message});
+  })
+}
+
+
 module.exports = {
   index: index,
   show: show,
   create: create,
+  destroy: destroy
 }

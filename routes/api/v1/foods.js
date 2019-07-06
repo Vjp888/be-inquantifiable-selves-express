@@ -17,5 +17,10 @@ router.post('/', function(req, res) {
   foodsController.create(req, res);
 });
 
+// Delete
+router.delete('/:id', function(req, res) {
+  foodsController.destroy(req,res);
+})
+
 
 module.exports = router;
