@@ -6,7 +6,7 @@ describe('api', () => {
   beforeAll(() => {
     shell.exec('npx sequelize db:create')
     // shell.exec("psql -c '\\c be_inquantifiable_selves_express_test;'")
-    shell.exec("psql -c be_inquantifiable_selves_express_test 'CREATE EXTENSION IF NOT EXISTS citext;'")
+    shell.exec("psql -d be_inquantifiable_selves_express_test -c 'CREATE EXTENSION IF NOT EXISTS citext;'")
   });
   beforeEach(() => {
     shell.exec('npx sequelize db:migrate')
