@@ -23,5 +23,8 @@ module.exports = (sequelize, DataTypes) => {
       through: models.mealfood
     });
   };
+  food.query = function(queryString) {
+    return sequelize.query(queryString);
+  };
   return food;
 };

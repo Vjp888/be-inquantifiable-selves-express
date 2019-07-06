@@ -21,13 +21,43 @@ async function show(req, res) {
   let foodId = req.params.id
   let singleFood = await Food.findOne({ where: { id: foodId } });
 
-    if(singleFood) {
-      res.setHeader("Content-Type", "application/json");
-      res.status(200).send(FoodSerializer.format(singleFood));
-    } else {
-      res.setHeader("Content-Type", "application/json");
-      res.status(404).send({"error": "Food not found"});
+  if(singleFood) {
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).send(FoodSerializer.format(singleFood));
+  } else {
+    res.setHeader("Content-Type", "application/json");
+    res.status(404).send({"error": "Food not found"});
+  }
+}
+
+async function update(req, res, sequelize) {
+  let foodId = req.params.id
+  let foodParams = req.body.food
+  let singleFood = await Food.findOne({ where: { id: foodId } });
+  if(singleFood) {
+    for(let [attr, value] of Object.entries(foodParams)) {
+      try {
+        // Creates SQL query for each attribute the user seeks to change
+        await Food.query(`UPDATE food
+                  SET
+                    ${attr} = '${value}'
+                  WHERE
+                    food.id = ${foodId}
+                  RETURNING
+                    *;`)
+
+      } catch (err) {
+        res.setHeader("Content-Type", "application/json");
+        res.status(400).send({"error": err.message});
+      }
     }
+    await singleFood.reload()
+    res.setHeader("Content-Type", "application/json");
+    res.status(202).send(FoodSerializer.format(singleFood));
+  } else {
+    res.setHeader("Content-Type", "application/json");
+    res.status(404).send({"error": "Food is not in the database"});
+  }
 }
 
 async function create(req, res) {
@@ -52,4 +82,5 @@ module.exports = {
   index: index,
   show: show,
   create: create,
+  update: update
 }
