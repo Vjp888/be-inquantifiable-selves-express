@@ -5,7 +5,7 @@ var app = require('../../../app');
 describe('api', () => {
   beforeAll(() => {
     shell.exec('npx sequelize db:create')
-    shell.exec("psql -c '\c be_inquantifiable_selves_express_test;'")
+    shell.exec("psql -c '\\c be_inquantifiable_selves_express_test;'")
     shell.exec("psql -c 'CREATE EXTENSION citext;'")
   });
   beforeEach(() => {
