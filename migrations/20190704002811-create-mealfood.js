@@ -15,7 +15,8 @@ module.exports = {
           key: 'id',
           // This declares when to check the foreign key constraint. PostgreSQL only.
           deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-        }
+        },
+        onDelete: 'cascade'
       },
       foodId: {
         type: Sequelize.INTEGER,
@@ -24,8 +25,10 @@ module.exports = {
           key: 'id',
           // This declares when to check the foreign key constraint. PostgreSQL only.
           deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-        }
-      },      createdAt: {
+        },
+        onDelete: 'cascade'
+      },
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
