@@ -6,9 +6,14 @@ install:
 services:
   - postgresql
 before_script:
-  - psql -c 'CREATE DATABASE be_inquantifiable_selves_express_test;' -U postgres
-  - psql -c '\c be_inquantifiable_selves_express_test;' -U postgres
-  - psql -c 'CREATE EXTENSION IF NOT EXISTS citext;' -U postgres
+  - psql -c 'create database test;' -U postgres
+  - psql -d  test -c 'create extension if not exists citext;' -U postgres
+  - npm run migrate up
+
+  #
+  # - psql -c 'CREATE DATABASE be_inquantifiable_selves_express_test;' -U postgres
+  # - psql -c '\c be_inquantifiable_selves_express_test;' -U postgres
+  # - psql -c 'CREATE EXTENSION IF NOT EXISTS citext;' -U postgres
 
 # create db
 # add citext
