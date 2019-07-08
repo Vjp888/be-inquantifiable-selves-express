@@ -23,7 +23,7 @@ Response:
 status: 200
 body:
 {
-  [
+  foods: [
     {
       "id": 1,
       "name": "Banana",
@@ -34,7 +34,7 @@ body:
       "name": "Apple",
       "calories": 10
     }
-  ]
+  ] 
 }
 ```
 
@@ -65,11 +65,12 @@ Content-Type: application/json
 Accept: application/json
 
 body:
-{ "food": 
-  {
-     "name": "Name of food here",
-     "calories": "Calories here"
-   }
+{ 
+  "food": 
+    {
+      "name": "Name of food here",
+      "calories": "Calories here"
+    }
 }
 ```
 Response:
@@ -78,7 +79,6 @@ status: 201
 body:
 { 
   "message": "FOODNAME has been added"
-
 }
 ```
 
