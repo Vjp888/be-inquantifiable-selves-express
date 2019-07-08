@@ -33,25 +33,7 @@ async function show(req, res) {
   }
 }
 
-async function destroy(req, res) {
-  let mealId = req.params.mealId
-  let foodId = req.params.foodId
-  try {
-    let mealFoodList = await mealFood.findAll({ where: {mealId: mealId, foodId: foodId} })
-    var pry = require('pryjs'); eval(pry.it)
-    for ( let mealFood of mealFoodList ) {
-      mealFood.destroy();
-    }
-    res.setHeader("Content-Type", "application/json");
-    res.status(204).send();
-  } catch(error) {
-    res.setHeader("Content-Type", "application/json");
-    res.status(404).send({"error": error.message});
-  }
-}
-
 module.exports = {
   index: index,
   show: show,
-  destroy: destroy
 }
