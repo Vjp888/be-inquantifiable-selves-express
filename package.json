@@ -16,7 +16,7 @@
     "morgan": "~1.9.1",
     "pg": "^7.11.0",
     "pryjs": "^1.0.3",
-    "sequelize": "^5.9.0",
+    "sequelize": "^5.9.3",
     "sequelize-cli": "^5.5.0"
   },
   "devDependencies": {
