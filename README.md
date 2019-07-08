@@ -170,7 +170,7 @@ Response
 ]
 ```
 
-**GET /api/v1/meals/:meal_id/foods**  
+**GET /api/v1/meals/:mealId/foods**  
 *returns a single meal resource and its foods*
 Request:
 ```
@@ -204,7 +204,7 @@ body:
 }
 ```
 
-**POST /api/v1/meals/:meal_id/foods/:id**
+**POST /api/v1/meals/:mealId/foods/:foodId**
 *returns a single meal resource and its foods*
 Request:
 ```
@@ -220,7 +220,7 @@ body:
 }
 ```
 
-**DELETE /api/v1/meals/:meal_id/foods/:id**
+**DELETE /api/v1/meals/:mealId/foods/:foodId**
 *returns a single meal resource and its foods*
 Request:
 ```
@@ -230,10 +230,6 @@ Accept: application/json
 Response:
 ```
 status: 204
-body:
-{
-    "message": "Successfully deleted FOODNAME from MEALNAME"
-}
 ```
 
 ### Setup
