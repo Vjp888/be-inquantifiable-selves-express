@@ -10,4 +10,8 @@ router.get('/:mealId/foods', function(req, res){
   mealsController.show(req, res);
 });
 
+router.delete("/:mealId/foods/:foodId", function(req, res){
+  mealsController.destroy(req, res)
+});
+
 module.exports = router;
