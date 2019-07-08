@@ -13,7 +13,6 @@ router.get('/:mealId/foods', function(req, res){
   mealsController.show(req, res);
 });
 
-
 // Create - mealFoods
 router.post('/:mealId/foods/:foodId', function(req, res){
   mealFoodsController.create(req, res);
