@@ -21,6 +21,26 @@ async function create(req, res) {
 }
 
 
+async function destroy(req, res) {
+  let mealId = req.params.mealId
+  let foodId = req.params.foodId
+  let mealFoodList = await MealFood.findAll({ where: {mealId: mealId, foodId: foodId} })
+  try {
+    if(mealFoodList.length === 0) {
+      throw Error ("Food, Meal or Relationship does not exist.");
+    }
+    for ( let MealFood of mealFoodList ) {
+      MealFood.destroy();
+    }
+    res.setHeader("Content-Type", "application/json");
+    res.status(204).send();
+  } catch(error) {
+    res.setHeader("Content-Type", "application/json");
+    res.status(404).send({"error": error.message});
+  }
+}
+
 module.exports = {
-  create: create
+  create: create,
+  destroy: destroy
 }

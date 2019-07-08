@@ -1,5 +1,6 @@
 var application = require('../../index.js');
 var meal = application.meal;
+var mealFood = application.mealfood;
 var MealSerializer = application.mealSerializer;
 
 async function index(req, res) {
@@ -34,5 +35,5 @@ async function show(req, res) {
 
 module.exports = {
   index: index,
-  show: show
+  show: show,
 }

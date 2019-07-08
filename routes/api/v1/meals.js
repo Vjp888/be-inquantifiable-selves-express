@@ -18,5 +18,9 @@ router.post('/:mealId/foods/:foodId', function(req, res){
   mealFoodsController.create(req, res);
 });
 
+// Destroy - mealFoods
+router.delete("/:mealId/foods/:foodId", function(req, res){
+  mealFoodsController.destroy(req, res)
+});
 
 module.exports = router;
