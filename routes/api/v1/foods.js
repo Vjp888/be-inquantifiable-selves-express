@@ -1,6 +1,6 @@
-var application = require('./index.js')
-var router = application.router
-var foodsController = application.foodsController
+var express = require('express');
+var router = express.Router();
+var foodsController = require('../../../controllers/api/v1/foods_controller.js');
 
 // Index
 router.get('/', function(req, res) {
@@ -20,6 +20,11 @@ router.post('/', function(req, res) {
 // Update
 router.patch('/:id', function(req, res) {
   foodsController.update(req, res);
+})
+
+// Delete
+router.delete('/:id', function(req, res) {
+  foodsController.destroy(req,res);
 })
 
 module.exports = router;
