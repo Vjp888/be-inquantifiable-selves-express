@@ -9,7 +9,7 @@ This is a group project during Mod 4 at Turing School of Software and design bet
 * Project management: Breaking down a feature into multiple user stories, using a project board, implementing a re-basing work flow, providing clear documentation in commit messages and pull requests.
 
 ### Endpoints  
-#### [inquantifiable-selves.herokuapp.com](https://www.inquantifiable-selves.herokuapp.com)
+#### [inquantifiable-selves.herokuapp.com](https://inquantifiable-selves.herokuapp.com)
 
 **GET /api/v1/foods**  
 *returns all food resources*  
