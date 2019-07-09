@@ -1,0 +1,50 @@
+<html>
+
+<head>
+  <title>Express</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <script src="https://d3js.org/d3.v5.js"></script>
+  <script>
+  function showFoodData(food) {
+    if(food == "") {
+      document.getElementById("data-returned").innerHTML = "Data Will Appear Here";
+    } else {
+      // Future Iteration - hit django microservice API endpoint with food as param: api/v1/charts?q=<food>
+      fetch('https://inquantifiable-selves.herokuapp.com/api/v1/foods')
+      .then(response => response.json())
+      .then(chartData => {
+        let list = ""
+
+        for(let foodItem of chartData.foods) {
+          if (food === foodItem.name) {
+            list += `${foodItem.name} : ${String(foodItem.calories)}\n`
+          }
+        }
+        document.getElementById("data-returned").innerHTML = list;
+      });
+    }
+  }
+  </script>
+
+  <h1>Inquantifiable Selves</h1>
+  <h4>Select a food, learn some things. </h4><br>
+
+  <form action="">
+  <select name="foods" onchange="showFoodData(this.value)">
+  <option value="">Select a food:</option>
+  <option value="Apple"> Apple </option>
+  <option value="Banana"> Banana </option>
+  <option value="Chips"> Chips </option>
+  </select>
+  </form>
+  <br>
+  <!-- future iteration - populate dropdown options from food model db -->
+
+  <div id="data-returned"> This is where Data will go </div>
+</body>
+
+</html>

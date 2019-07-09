@@ -61,15 +61,16 @@ async function update(req, res, sequelize) {
 
 async function create(req, res) {
   let newFood = req.body.food.name;
+  let foodCapitalized = newFood.charAt(0).toUpperCase() + newFood.slice(1);
   let calories = req.body.food.calories;
-  
+
   try {
     await Food.create({
-      name: newFood,
+      name: foodCapitalized,
       calories: calories
     })
     res.setHeader("Content-Type", "application/json");
-    res.status(201).send({"message": `${newFood} has been added`});
+    res.status(201).send({"message": `${foodCapitalized} has been added`});
   } catch(error) {
     res.setHeader("Content-Type", "application/json");
     res.status(400).send({"error": error.message});
@@ -78,7 +79,7 @@ async function create(req, res) {
 
 async function destroy(req, res) {
   let foodId = req.params.id
-  
+
   try {
     let singleFood = await Food.findOne({ where: { id: foodId } });
     singleFood.destroy();
