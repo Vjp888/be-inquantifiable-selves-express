@@ -5,8 +5,9 @@ This is a group project during Mod 4 at Turing School of Software and design bet
 
 **Key Learnings**
 * Using JavaScript and Node.js to build out a backend application with a number of endpoints.
-* Implementing Jest for testing.
+* Configurations and interactions in new frameworks.
 * Project management: Breaking down a feature into multiple user stories, using a project board, implementing a re-basing work flow, providing clear documentation in commit messages and pull requests.
+* Implementation of an Ajax call.
 
 ### Endpoints  
 #### [inquantifiable-selves.herokuapp.com](https://inquantifiable-selves.herokuapp.com)
