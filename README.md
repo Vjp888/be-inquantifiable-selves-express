@@ -1,7 +1,7 @@
 ## Inquantifiable Selves - Express
 
 ### Overview
-This is a group project during Mod 4 at Turing School of Software and design between [Blake Enyart](https://github.com/blake-enyart), [Corey Sheesley](https://github.com/CSheesley), and Vincent Provenzano(https://github.com/Vjp888), where we were exposed to Node.js and Javascript. With a familiarity in an M-V-C architecture, we used this same design pattern as we built out endpoints for `food` and `meal` resources.
+This is a group project during Mod 4 at Turing School of Software and design between [Blake Enyart](https://github.com/blake-enyart), [Corey Sheesley](https://github.com/CSheesley), and [Vincent Provenzano](https://github.com/Vjp888), where we were exposed to Node.js and Javascript. With a familiarity in an M-V-C architecture, we used this same design pattern as we built out endpoints for `food` and `meal` resources.
 
 **Key Learnings**
 * Using JavaScript and Node.js to build out a backend application with a number of endpoints.
@@ -83,7 +83,8 @@ body:
 ```
 
 **PATCH /api/v1/foods/:id**  
-*creates a single food resource*  
+*updates a single food resource*
+**only one attribute is needed for update*
 Request:
 ```
 PATCH /api/v1/foods/:id
