@@ -9,7 +9,7 @@ This is a group project during Mod 4 at Turing School of Software and design bet
 * Project management: Breaking down a feature into multiple user stories, using a project board, implementing a re-basing work flow, providing clear documentation in commit messages and pull requests.
 
 ### Endpoints  
-#### [inquantifiable-selves.herokuapp.com](inquantifiable-selves.herokuapp.com)
+#### [inquantifiable-selves.herokuapp.com](https://inquantifiable-selves.herokuapp.com)
 
 **GET /api/v1/foods**  
 *returns all food resources*  
@@ -23,7 +23,7 @@ Response:
 status: 200
 body:
 {
-  [
+  foods: [
     {
       "id": 1,
       "name": "Banana",
@@ -34,7 +34,7 @@ body:
       "name": "Apple",
       "calories": 10
     }
-  ]
+  ] 
 }
 ```
 
@@ -54,6 +54,65 @@ body:
     "name": "Banana",
     "calories": 150
 }
+```
+
+**POST /api/v1/foods**  
+*creates a single food resource*  
+Request:
+```
+POST /api/v1/foods
+Content-Type: application/json
+Accept: application/json
+
+body:
+{ 
+  "food": 
+    {
+      "name": "Name of food here",
+      "calories": "Calories here"
+    }
+}
+```
+Response:
+```
+status: 201
+body:
+{ 
+  "message": "FOODNAME has been added"
+}
+```
+
+**PATCH /api/v1/foods/:id**  
+*creates a single food resource*  
+Request:
+```
+PATCH /api/v1/foods/:id
+Content-Type: application/json
+Accept: application/json
+
+{ "food": { "name": "Mint", "calories": "14"} }
+```
+Response:
+```
+status: 202
+body: 
+{
+    "id": 1,
+    "name": "Mint",
+    "calories": 14
+}
+```
+
+**DELETE /api/v1/foods/:id**  
+*deletes a single food resource*  
+Request:
+```
+Content-Type: application/json
+Accept: application/json
+```
+Response:
+```
+status: 204
 ```
 
 **GET /api/v1/meals**  
@@ -111,7 +170,7 @@ Response
 ]
 ```
 
-**GET /api/v1/meals/:meal_id/foods**  
+**GET /api/v1/meals/:mealId/foods**  
 *returns a single meal resource and its foods*
 Request:
 ```
@@ -145,6 +204,34 @@ body:
 }
 ```
 
+**POST /api/v1/meals/:mealId/foods/:foodId**
+*returns a single meal resource and its foods*
+Request:
+```
+Content-Type: application/json
+Accept: application/json
+```
+Response:
+```
+status: 201
+body:
+{
+    "message": "successfully added FOODNAME to MEALNAME"
+}
+```
+
+**DELETE /api/v1/meals/:mealId/foods/:foodId**
+*returns a single meal resource and its foods*
+Request:
+```
+Content-Type: application/json
+Accept: application/json
+```
+Response:
+```
+status: 204
+```
+
 ### Setup
 *Database & Models*  
 `$ npx sequelize db:create`  
@@ -157,6 +244,10 @@ body:
 
 ### Packages
 `$ npm install dotenv`  
+`$ npm install cors`
+
+### Testing
+ Our plan was to use Jest for testing - however due to the lack of Jest testing for the backend of express apllications (as opposed to Mocha or Chai), along with time constraints - our Project Manager allowed us to test things in local host and production to prove that our code was functional.
 
 *Testing*  
 `$npm install babel-jest supertest shelljs -D`  
