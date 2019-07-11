@@ -83,8 +83,8 @@ body:
 ```
 
 **PATCH /api/v1/foods/:id**  
-*updates a single food resource*
-**only one attribute is needed for update*
+*updates a single food resource*  
+**only one attribute is needed for update*  
 Request:
 ```
 PATCH /api/v1/foods/:id
@@ -248,7 +248,7 @@ status: 204
 `$ npm install cors`
 
 ### Testing
- Our plan was to use Jest for testing - however due to the lack of Jest testing for the backend of express apllications (as opposed to Mocha or Chai), along with time constraints - our Project Manager allowed us to test things in local host and production to prove that our code was functional.
+Our plan was to use Jest for testing - however due to the lack of Jest testing for the backend of express apllications (as opposed to Mocha or Chai), along with time constraints - our Project Manager allowed us to test things in local host and production to prove that our code was functional.
 
 *Testing*  
 `$npm install babel-jest supertest shelljs -D`  
