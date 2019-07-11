@@ -4,9 +4,11 @@
 This is a group project during Mod 4 at Turing School of Software and design between [Blake Enyart](https://github.com/blake-enyart), [Corey Sheesley](https://github.com/CSheesley), and [Vincent Provenzano](https://github.com/Vjp888), where we were exposed to Node.js and Javascript. With a familiarity in an M-V-C architecture, we used this same design pattern as we built out endpoints for `food` and `meal` resources.
 
 **Key Learnings**
+* Project Management: Breaking down a feature into multiple user stories, using a project board, implementing a re-basing work flow, providing clear documentation in commit messages and pull requests.
 * Using JavaScript and Node.js to build out a backend application with a number of endpoints.
 * Configurations and interactions in new frameworks.
-* Project management: Breaking down a feature into multiple user stories, using a project board, implementing a re-basing work flow, providing clear documentation in commit messages and pull requests.
+* Continuous Integration and Deployments.
+* Use of CORS.
 * Implementation of an Ajax call.
 
 ### Endpoints  
