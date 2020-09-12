@@ -16,7 +16,7 @@
     "express": "~4.16.1",
     "jest-cli": "^24.8.0",
     "morgan": "~1.9.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "pg": "^7.11.0",
     "pryjs": "^1.0.3",
     "sequelize": "^5.9.3",
